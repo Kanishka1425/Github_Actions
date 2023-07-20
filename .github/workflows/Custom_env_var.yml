@@ -7,24 +7,30 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:    
+  Day_of_week: Funday
+  testvar: value-1
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  mainjob:  
+    name: 'print the env vars'
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    env:
+      Greetings: Dear
+      testvar: value-2
+ # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+    - name: print-value-of-env-var
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      run:
+         echo "$Greeting $First_Name. Today is $Day_of_week!"
+         echo "testvar $testvar"
+         echo "testvar ${{ env.testvar }}"
+      env:
+         First_Name: Student
+         testvar: value-3  
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      
