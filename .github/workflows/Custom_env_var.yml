@@ -32,5 +32,5 @@ jobs:
       env:
          First_Name: Student
          testvar: value-3  
-
+      shell: bash
       
