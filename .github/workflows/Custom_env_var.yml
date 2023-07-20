@@ -26,7 +26,7 @@ jobs:
     - name: print-value-of-env-var
 
       run: |
-         echo "$Greeting $First_Name. Today is $Day_of_week!"
+         echo "$Greetings $First_Name. Today is $Day_of_week!"
          echo "testvar $testvar"
          echo "testvar ${{ env.testvar }}"
       env:
