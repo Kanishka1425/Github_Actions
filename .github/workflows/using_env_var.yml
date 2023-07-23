@@ -1,4 +1,4 @@
-name: 'use_of_Env_var' 
+name: 'custom GITHUB_ENV var Demo' 
 
 on: workflow_dispatch
 
@@ -9,7 +9,7 @@ jobs:
     - name: set_the_value
       id: step_one
       run: |
-       echo "action_state=yellow" >> $use_of_Env_var
+       echo: "action_state=yellow" >> $GITHUB_ENV
 
     - name: use the value
       id: step_two
