@@ -1,4 +1,4 @@
-name: 'use_of_Env var' 
+name: 'use_of_Env_var' 
 
 on: workflow_dispatch
 
@@ -9,8 +9,8 @@ jobs:
     - name: set_the_value
       id: step_one
       run: |
-       echo "action_state=yellow" >> $use_of_Env var
-       
+       echo "action_state=yellow" >> $use_of_Env_var
+
     - name: use the value
       id: step_two
       run: |
