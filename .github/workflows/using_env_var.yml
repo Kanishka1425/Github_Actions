@@ -9,7 +9,8 @@ jobs:
     - name: set_the_value
       id: step_one
       run: |
-       echo "action_state=yellow" >> $use_of_Env
+       echo "action_state=yellow" >> $use_of_Env var
+       
     - name: use the value
       id: step_two
       run: |
