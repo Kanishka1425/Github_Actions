@@ -1,0 +1,31 @@
+name: Copy A File
+description: copying a File
+
+inputs:
+    filename: 
+        required: true
+        description: filename to Copy
+    sourcePath:
+        required: true
+        description: source location
+    targetLocation:
+        required: true
+        description: target location
+        
+runs:
+   using: "composite"
+   steps:
+    - name: Copy File
+      run: |
+        mkdir "/home/sourcePath"
+        mkdir "/home/targetLocation"
+        echo "test_1.log" > /home/sourcePath/test.log
+        echo "test_2.log" > /home/sourcePath/test2.txt
+        echo "test_3.log" > /home/sourcePath/test.logtxt
+        echo "test_4.log" > /home/sourcePath/test.txtlog
+        echo "test_5.log" > /home/sourcePath/test.log2
+        echo "test_6.log" > /home/sourcePath/test.log3
+        
+      shell: bash
+       
+        

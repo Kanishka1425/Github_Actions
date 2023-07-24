@@ -1,21 +1,31 @@
 name: Octo Organization CI
 
 on:
-  push:
-    branches: main
-  pull_request:
-    branches: main
-
+    workflow_dispatch:
+        inputs:
+            filename: 
+                description: "Provide_Build_Number"
+                required: True
+                default: "2022.11.036"
+            sourcePath:
+                description: "Provide_Build_Number"
+                required: True
+                default: "C:\Data\Github_Actions"
+            targetLocation:
+                description: "Provide_Build_Number"
+                required: True
+                default: "C:\Data\ActionCreation"
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - uses: C:\Data\Github_Actions\.github\workflows\adding_A_file.yml
+      - uses: ./.github/actions/Copy
         with:
-          file_name: my_app
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+          filename: ${{ github.events.inputs.filename }}
+          sourcePath: ${{ github.events.inputs.sourcePath }} 
+          targetLocation: ${{ github.events.inputs.targetLocation }}
+          
        
           
 
