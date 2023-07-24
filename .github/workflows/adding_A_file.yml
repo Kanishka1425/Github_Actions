@@ -1,1 +1,18 @@
+name: 'using this file'
 
+on:
+   workflow_call:
+    inputs:
+      file_name:
+        required: true
+        type: string
+    
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'i am using this file'
+      run: echo add and deploy my project  
+     
+  
