@@ -29,8 +29,8 @@ runs:
 
     - name: Copy A File
       run: |
-          if [[ -f ${{ env.given_source_path}}\${{ env.given_file_name }} ]]; then
-              cp -rf ${{ env.given_source_path }}\${{ env.given_file_name }} ${{ env.given_target_Location }}\${{ env.given_file_name }} 
+          if [[ -f ${{ env.given_source_path}}/${{ env.given_file_name }} ]]; then
+              cp -rf ${{ env.given_source_path }}/${{ env.given_file_name }} ${{ env.given_target_Location }}/${{ env.given_file_name }} 
           else
             echo "${{ env.given_file_name }} File Not Exists"
           fi
