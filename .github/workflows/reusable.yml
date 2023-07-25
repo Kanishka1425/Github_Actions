@@ -19,9 +19,6 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout_latest_CODE
-        uses: action/checkout@v3
-
       - name: copysomefiles
         uses: ./.github/actions/Copy/action.yml
         with:
