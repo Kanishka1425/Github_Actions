@@ -17,15 +17,21 @@ runs:
    steps:
     - name: Copy File
       run: |
-        mkdir "/home/sourcePath"
-        mkdir "/home/targetLocation"
-        echo "test_1.log" > /home/sourcePath/test.log
-        echo "test_2.log" > /home/sourcePath/test2.txt
-        echo "test_3.log" > /home/sourcePath/test.logtxt
-        echo "test_4.log" > /home/sourcePath/test.txtlog
-        echo "test_5.log" > /home/sourcePath/test.log2
-        echo "test_6.log" > /home/sourcePath/test.log3
-        
+        mkdir "/data/sourcePath"
+        mkdir "/data/targetLocation"
+        echo "test_1.log" > /data/sourcePath/test.log
+        echo "test_2.log" > /data/sourcePath/test2.txt
+        echo "test_3.log" > /data/sourcePath/test.logtxt
+        echo "test_4.log" > /data/sourcePath/test.txtlog
+        echo "test_5.log" > /data/sourcePath/test.log2
+        echo "test_6.log" > /data/sourcePath/test.log3
+    - name: Check if file was created
+      run: |
+          if ${{ github.events.inputs.filename }} ; then 
+          echo "File Exists"
+          exit 1
+          else
+            echo "File didn't exist" 
       shell: bash
        
         

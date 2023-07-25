@@ -4,17 +4,17 @@ on:
     workflow_dispatch:
         inputs:
             filename: 
-                description: "Provide_Build_Number"
+                description: "Provide_file_name"
                 required: True
                 default: "2022.11.036"
             sourcePath:
-                description: "Provide_Build_Number"
+                description: "Provide_Source_Path"
                 required: True
-                default: "C:\Data\Github_Actions"
+                default: "C:\\Data\\Github_Actions"
             targetLocation:
-                description: "Provide_Build_Number"
+                description: "Provide_target_Location"
                 required: True
-                default: "C:\Data\ActionCreation"
+                default: "C:\\Data\\ActionCreation"
 jobs:
   build:
     runs-on: windows-latest
