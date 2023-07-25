@@ -18,8 +18,10 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    
 
     steps:
+      - uses: action/checkout@v3
       - uses: ./.github/actions/Copy
         with:
           filename: ${{ github.events.inputs.filename }}
