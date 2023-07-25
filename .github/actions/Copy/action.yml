@@ -36,8 +36,8 @@ runs:
           fi
       env:
         given_file_name : ${{ inputs.filename }}  
-        given_source_path : ${{ input.sourcePath }}
-        given_target_Location : ${{ input.targetLocation }} 
+        given_source_path : ${{ inputs.sourcePath }}
+        given_target_Location : ${{ inputs.targetLocation }} 
       shell: bash
        
         
