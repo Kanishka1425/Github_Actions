@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: action/checkout@v3
-      - uses: ./.github/actions/Copy
+      - uses: ./.github/actions/Copy/action.yml
         with:
           filename: ${{ github.events.inputs.filename }}
           sourcePath: ${{ github.events.inputs.sourcePath }} 
