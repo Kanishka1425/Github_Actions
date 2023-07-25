@@ -17,8 +17,8 @@ runs:
    steps:
     - name: Copy File
       run: |
-        mkdir "/data/sourcePath"
-        mkdir "/data/targetLocation"
+        mkdir ${{ inputs.sourcePath }}
+        mkdir ${{ inputs.targetLocation }}
         echo "test_1.log" > /data/sourcePath/test.log
         echo "test_2.log" > /data/sourcePath/test2.txt
         echo "test_3.log" > /data/sourcePath/test.logtxt
@@ -27,19 +27,11 @@ runs:
         echo "test_6.log" > /data/sourcePath/test.log3
     - name: Check if file was created
       run: |
-          if ${{ github.events.inputs.filename }} ; then 
-          echo "File Exists"
-          exit 1
-          else
-            echo "File didn't exist" 
+          
       env: Copy a file
         given_file_name : ${{ inputs.filename }}  
         given_source_path : ${{ input.sourcePath }}
         given_target_Location : ${{ input.targetLocation }} 
-      run : 
-        echo ${given_file_name}   
-        echo ${given_source_path}
-        echo ${given_target_Location} 
-      shell: bash
+      shell: pwsh
        
         

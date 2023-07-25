@@ -18,17 +18,16 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    
-
     steps:
       - name: Checkout_latest_CODE
         uses: action/checkout@v3
+
+      - name: copysomefiles
+        uses: ./.github/actions/Copy/action.yml
         with:
-          filename: ${{ github.events.inputs.filename }}
-          sourcePath: ${{ github.events.inputs.sourcePath }} 
-          targetLocation: ${{ github.events.inputs.targetLocation }}
-          
-      - uses: ./.github/actions/Copy/action.yml
+          filename: ${{ github.event.inputs.filename }}
+          sourcePath: ${{ github.event.inputs.sourcePath }} 
+          targetLocation: ${{ github.event.inputs.targetLocation }}
           
 
    
