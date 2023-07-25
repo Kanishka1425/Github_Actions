@@ -29,10 +29,10 @@ runs:
 
     - name: Copy A File
       run: |
-          if [[ -f $given_source_path\$given_file_name ]]; then
-              cp -rf $given_source_path\$given_file_name $given_target_Location\$given_file_name 
+          if [[ -f ${{ env.given_source_path}}\${{ env.given_file_name }} ]]; then
+              cp -rf ${{ env.given_source_path }}\${{ env.given_file_name }} ${{ env.given_target_Location }}\${{ env.given_file_name }} 
           else
-            echo "File Not Exists"
+            echo "${{ env.given_file_name }} File Not Exists"
           fi
       env:
         given_file_name : ${{ inputs.filename }}  
