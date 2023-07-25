@@ -20,7 +20,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: copysomefiles
-        uses: Kanishka1425/Github_Actions/.github/actions/action.yml@main
+        uses: Kanishka1425/Github_Actions/.github/action/Copy/action.yml@main
         with:
           filename: ${{ github.event.inputs.filename }}
           sourcePath: ${{ github.event.inputs.sourcePath }} 
