@@ -19,16 +19,22 @@ runs:
       run: |
         mkdir ${{ inputs.sourcePath }}
         mkdir ${{ inputs.targetLocation }}
-        echo "test_1.log" > /data/sourcePath/test.log
-        echo "test_2.log" > /data/sourcePath/test2.txt
-        echo "test_3.log" > /data/sourcePath/test.logtxt
-        echo "test_4.log" > /data/sourcePath/test.txtlog
-        echo "test_5.log" > /data/sourcePath/test.log2
-        echo "test_6.log" > /data/sourcePath/test.log3
-    - name: Check if file was created
+        echo "test_1.log" > ${{ inputs.sourcePath }}/test.log
+        echo "test_2.log" > ${{ inputs.sourcePath }}/test2.txt
+        echo "test_3.log" > ${{ inputs.sourcePath }}/test.logtxt
+        echo "test_4.log" > ${{ inputs.sourcePath }}/test.txtlog
+        echo "test_5.log" > ${{ inputs.sourcePath }}/test.log2
+        echo "test_6.log" > ${{ inputs.sourcePath }}/test.log3
+      shell: pwsh
+
+    - name: Copy A File
       run: |
-          
-      env: Copy a file
+          if [System.IO.File]::Exists( $given_source_path\$given_file_name )
+            Write-Host "File Exists!"
+            Copy-Item $given_source_path\$given_file_name -Destination $given_target_Location
+          else
+            Write-Host "File Not Exists"
+      env:
         given_file_name : ${{ inputs.filename }}  
         given_source_path : ${{ input.sourcePath }}
         given_target_Location : ${{ input.targetLocation }} 
