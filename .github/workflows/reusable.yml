@@ -6,7 +6,7 @@ on:
             filename: 
                 description: "Provide_file_name"
                 required: True
-                default: "2022.11.036"
+                default:      
             sourcePath:
                 description: "Provide_Source_Path"
                 required: True
@@ -21,14 +21,14 @@ jobs:
     
 
     steps:
-      - uses: action/checkout@v3
-      - uses: ./.github/actions/Copy/action.yml
+      - name: Checkout_latest_CODE
+        uses: action/checkout@v3
         with:
           filename: ${{ github.events.inputs.filename }}
           sourcePath: ${{ github.events.inputs.sourcePath }} 
           targetLocation: ${{ github.events.inputs.targetLocation }}
           
-       
+      - uses: ./.github/actions/Copy/action.yml
           
 
    

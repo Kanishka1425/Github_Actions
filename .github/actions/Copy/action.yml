@@ -32,6 +32,14 @@ runs:
           exit 1
           else
             echo "File didn't exist" 
+      env: Copy a file
+        given_file_name : ${{ inputs.filename }}  
+        given_source_path : ${{ input.sourcePath }}
+        given_target_Location : ${{ input.targetLocation }} 
+      run : 
+        echo ${given_file_name}   
+        echo ${given_source_path}
+        echo ${given_target_Location} 
       shell: bash
        
         
