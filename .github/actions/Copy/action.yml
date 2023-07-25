@@ -29,7 +29,7 @@ runs:
 
     - name: Copy A File
       run: |
-          if [[ -f $given_source_path\$given_file_name
+          if [[ -f $given_source_path\$given_file_name ]]; then
               cp -rf $given_source_path\$given_file_name $given_target_Location\$given_file_name 
           else
             echo "File Not Exists"
