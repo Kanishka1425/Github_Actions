@@ -31,8 +31,10 @@ runs:
       run: |
           if [[ -f ${{ env.given_source_path}}/${{ env.given_file_name }} ]]; then
               cp -rf ${{ env.given_source_path }}/${{ env.given_file_name }} ${{ env.given_target_Location }}/${{ env.given_file_name }} 
+              echo "Successfully copied"
           else
             echo "${{ env.given_file_name }} File Not Exists"
+            exit 1
           fi
       env:
         given_file_name : ${{ inputs.filename }}  
