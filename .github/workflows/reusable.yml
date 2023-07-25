@@ -10,14 +10,14 @@ on:
             sourcePath:
                 description: "Provide_Source_Path"
                 required: True
-                default: "C:\\Data\\Github_Actions"
+                default: "$HOME/source_path"
             targetLocation:
                 description: "Provide_target_Location"
                 required: True
-                default: "C:\\Data\\ActionCreation"
+                default: "$HOME/target_path"
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: copysomefiles
         uses: Kanishka1425/Github_Actions/.github/actions/Copy@main
